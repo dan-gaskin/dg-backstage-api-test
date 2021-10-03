@@ -6,7 +6,7 @@ metadata:
   tags: 
     - pokedex
     - openapi
-    - team a
+    - poketeam
   links:
     url: http://localhost:5000
   annotations:
