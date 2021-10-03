@@ -11,4 +11,4 @@ spec:
   lifecycle: production
   owner: user:guest
   definition:
-    $text: /blob/main/api/swagger.json 
+    $text: ./api/swagger.json 
