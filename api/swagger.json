@@ -1,0 +1,223 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Pokedex API",
+      "description": "A rest Pokedex API",
+      "version": "0.1.0"
+    },
+    "servers": [
+      {
+        "url": "http://loalhost:5000",
+        "description": "Offline development"
+      }
+    ],
+    "paths": {
+      "/pokemon/{pokemonName}": {
+        "get": {
+          "summary": "Returns attributes of a specified pokemon name",
+          "parameters": [
+            {
+              "name": "pokemonName",
+              "in": "path",
+              "required": true,
+              "description": "The name of the pokemon to return attributes of",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "x-correlation-id",
+              "in": "header",
+              "required": true,
+              "description": "Corellation id for tracibility",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string",
+                    "example": "6150e422-0abc-4842-89b7-e6242a41ec3c"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/pokemonSchema"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "The specified pokemon name is invalid (not a string).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "A pokemon with the specified name was not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/pokemon/translated/{pokemonName}": {
+        "get": {
+          "summary": "Returns attributes of a specified pokemon name with a translated description",
+          "parameters": [
+            {
+              "name": "pokemonName",
+              "in": "path",
+              "required": true,
+              "description": "The name of the pokemon to return attributes of",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "x-correlation-id",
+              "in": "header",
+              "required": true,
+              "description": "Corellation id for tracibility",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string",
+                    "example": "6150e422-0abc-4842-89b7-e6242a41ec3c"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/pokemonSchema"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "The specified pokemon name is invalid (not a string).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "A pokemon with the specified name was not found.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "rate limiting",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorSchema"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "pokemonSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "mewtwo"
+            },
+            "description": {
+              "type": "string",
+              "example": "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments."
+            },
+            "habitat": {
+              "type": "string",
+              "example": "rare"
+            },
+            "isLegendary": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          "required": [
+            "name",
+            "description",
+            "habitat",
+            "isLegendary"
+          ]
+        },
+        "errorSchema": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "string",
+              "example": "internal server error"
+            },
+            "message": {
+              "type": "string",
+              "example": "An error has occured processing the request"
+            },
+            "errorCode": {
+              "type": "string",
+              "example": "internal_server_error"
+            }
+          },
+          "required": [
+            "error",
+            "message",
+            "errorCode"
+          ]
+        }
+      }
+    }
+  }

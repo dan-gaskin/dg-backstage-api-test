@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pokedex
+  description: The pokedex API
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/dan-gaskin/dg-backstage-api-test/blob/main/api-docs/catalog-info.yml
+    backstage.io/techdocs-ref: url:https://github.com/dan-gaskin/Pokedex/blob/main/README.md
+spec:
+  type: openapi
+  lifecycle: production
+  owner: user:guest
+  definition:
+    $text: ./api-docs/swagger.json
