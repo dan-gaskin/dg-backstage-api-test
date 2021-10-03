@@ -8,7 +8,7 @@ metadata:
     - openapi
     - poketeam
   links:
-    url: http://localhost:5000
+    - url: http://localhost:5000
   annotations:
     backstage.io/managed-by-location: url:https://github.com/dan-gaskin/dg-backstage-api-test/blob/main/api/catalog-info.yml
     backstage.io/techdocs-ref: ./docs
