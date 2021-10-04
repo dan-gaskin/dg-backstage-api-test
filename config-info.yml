@@ -16,6 +16,8 @@ metadata:
     backstage.io/managed-by-location: url:https://github.com/dan-gaskin/dg-backstage-api-test/blob/main/catalog-info.yml
     backstage.io/techdocs-ref: dir:.
     github.com/project-slug: dan-gaskin/dg-backstage-api-test
+    circleci.com/project-slug: github/dan-gaskin/dg-backstage-api-test
+    backstage.io/code-coverage: scm-only
 spec:
   type: service
   lifecycle: production
