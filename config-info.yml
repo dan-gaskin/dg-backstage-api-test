@@ -12,7 +12,7 @@ metadata:
   annotations:
     backstage.io/managed-by-location: url:https://github.com/dan-gaskin/dg-backstage-api-test/blob/main/catalog-info.yml
     backstage.io/techdocs-ref: dir:.
-    circleci.com/project-slug: github/dan-gaskin/dg-backstage-api-test
+    github.com/project-slug: dan-gaskin/dg-backstage-api-test
 spec:
   type: service
   lifecycle: production
