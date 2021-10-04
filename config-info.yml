@@ -20,9 +20,6 @@ spec:
   definition:
     $text: ./docs/swagger.json
   providesApis:
-    - pokemon
-    - pokemon/translated
-  providesApis:
     - pokemon/{pokemonName}
     - pokemon/translated/{pokemonName}
   consumesApis:
