@@ -18,4 +18,14 @@ spec:
   lifecycle: production
   owner: user:guest
   definition:
-    $text: ./docs/swagger.json 
+    $text: ./docs/swagger.json
+  providesApis:
+    - pokemon
+    - pokemon/translated
+  providesApis:
+    - pokemon/{pokemonName}
+    - pokemon/translated/{pokemonName}
+  consumesApis:
+    - https://pokeapi.co/api/v2/pokemon-species/{pokemonName}
+    - https://api.funtranslations.com/translate/yoda
+    - https://api.funtranslations.com/translate/shakespeare
