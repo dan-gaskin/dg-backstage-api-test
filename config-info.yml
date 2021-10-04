@@ -11,7 +11,7 @@ metadata:
     - url: http://localhost:5000/pokemon
   annotations:
     backstage.io/managed-by-location: url:https://github.com/dan-gaskin/dg-backstage-api-test/blob/main/api/catalog-info.yml
-    backstage.io/techdocs-ref: dir:./docs
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: openapi
   lifecycle: production
