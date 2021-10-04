@@ -16,6 +16,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: user:guest
+  system: pokedex
   definition:
     $text: ./docs/swagger.json
   providesApis:
