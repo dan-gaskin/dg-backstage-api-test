@@ -1,7 +1,20 @@
 apiVersion: backstage.io/v1alpha1
-kind: API
+kind: Component
 metadata:
   name: pokedex
+  description: pokedex product
+spec:
+  type: service
+  lifecycle: production
+  owner: user:guest
+  system: pokedex
+  providesApis:
+    - pokedex-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pokedex-api
   description: The pokedex API
   tags: 
     - pokedex
@@ -20,10 +33,3 @@ spec:
   system: pokedex
   definition:
     $text: ./docs/swagger.json
-  providesApis:
-    - pokemon/{pokemonName}
-    - pokemon/translated/{pokemonName}
-  consumesApis:
-    - https://pokeapi.co/api/v2/pokemon-species/{pokemonName}
-    - https://api.funtranslations.com/translate/yoda
-    - https://api.funtranslations.com/translate/shakespeare
